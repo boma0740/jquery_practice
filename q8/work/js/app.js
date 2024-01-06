@@ -7,7 +7,7 @@ $(function () {
 			// 各アイテムごとに処理
 			$.each(response[0].items, function (index, item) {
 				// 書籍情報をHTMLに変換してリストに追加
-				var listItem = `
+				let listItem = `
 					<li class="lists-item">
 						<div class="list-inner">
 							<p>タイトル：${item.title ? item.title : "不明"}</p>
@@ -24,12 +24,12 @@ $(function () {
 	}
 
 	// 変数初期化
-	var pageCount = 1;         // ページ番号の初期値
-	var prevSearchWord = "";   // 前回の検索ワードの初期値
+	let pageCount = 1;         // ページ番号の初期値
+	let prevSearchWord = "";   // 前回の検索ワードの初期値
 
 	// 検索ボタンがクリックされたときの処理
 	$(".search-btn").on("click", function () {
-		var searchWord = $("#search-input").val();
+		let searchWord = $("#search-input").val();
 
 		// 前回の検索ワードと異なる場合は検索条件をリセット
 		if (searchWord !== prevSearchWord) {
