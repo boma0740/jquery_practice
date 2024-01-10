@@ -2,30 +2,30 @@ $(document).ready(function () {
 	// アカウント作成ボタンがクリックされたときに実行される処理
 	$(".btn__submit").click(function () {
 		// 個人情報
-		let familyName = $("#family__name").val();
-		let givenName = $("#given__name").val();
-		let year = $(".year").val();
-		let month = $(".month").val();
-		let day = $(".day").val();
-		let gender = $("input[name='gender']:checked").val();
-		let occupation = $(".occupation").val();
+		const familyName = $("#family__name").val();
+		const givenName = $("#given__name").val();
+		const year = $(".year").val();
+		const month = $(".month").val();
+		const day = $(".day").val();
+		const gender = $("input[name='gender']:checked").val();
+		const occupation = $(".occupation").val();
 
 		// アカウント情報
-		let accountName = $("#account__name").val();
-		let email = $("#email").val();
-		let password = $("#password").val();
-		let duplicationPassword = $("#duplication__password").val();
+		const accountName = $("#account__name").val();
+		const email = $("#email").val();
+		const password = $("#password").val();
+		const duplicationPassword = $("#duplication__password").val();
 
 		// 連絡先
-		let address = $("#address").val();
-		let tel = $("#tel").val();
+		const address = $("#address").val();
+		const tel = $("#tel").val();
 
 		// 購読情報
-		let emailMagazine = $("#email__magazine").is(":checked");
-		let coupon = $("#coupon").is(":checked");
+		const emailMagazine = $("#email__magazine").is(":checked");
+		const coupon = $("#coupon").is(":checked");
 
 		// 誕生日を結合
-		let birthday = year + "年" + month + "月" + day + "日";
+		const birthday = year + "年" + month + "月" + day + "日";
 
 		// コンソールに出力
 		console.log("個人情報");

@@ -3,7 +3,7 @@ $(document).ready(function () {
 	// セレクトボックスの値が変更されたときに実行される処理
 	$(".select-box").change(function () {
 		// 選択されたカテゴリーの値を取得
-		let selectedCategory = $(this).val();
+		const selectedCategory = $(this).val();
 
 		// 選択されたカテゴリーが "all"（全て）の場合
 		if (selectedCategory === "all") {
