@@ -31,16 +31,16 @@ $(document).ready(function () {
 	// ボタンがクリックされたときに実行されるコード
 	$("#q5").on("click", function () {
     // 対象のDOMを取得
-    const $target = $(this);
+    const target = $(this);
     // ボタンの内部の最初の小要素に"DOMの中の前"を挿入
-    $target.prepend("DOMの中の前");
+    target.prepend("DOMの中の前")
     // ボタンの内部の最後の小要素に"DOMの中の後"を挿入
-    $target.append("DOMの中の後");
+    .append("DOMの中の後")
     // ボタンの前に"DOMの前"を挿入
-    $target.before("DOMの前");
+   	.before("DOMの前")
     // ボタンの後ろに"DOMの後"を挿入
-    $target.after("DOMの後");
-});
+    .after("DOMの後");
+	});
 
 // Q1-6 クリックして移動
 	// ボタンがクリックされたときに実行されるコード
@@ -78,7 +78,7 @@ $(document).ready(function () {
 // Q1-10 Q10をクリックしてQ11を操作
 	$("#q10 li").on("click", function () {
 		// 対応するQ11のli要素に.large-textクラスを追加
-		let index = $(this).index();
+		const index = $(this).index();
 		$("#q11 li").eq(index).addClass("large-text");
 	});
 });
