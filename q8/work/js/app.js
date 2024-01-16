@@ -1,9 +1,11 @@
+// ドキュメントが読み込まれたときの処理
 $(function () {
 	// 関数: APIのレスポンスを処理して結果を表示
 	function processApiResponse(response) {
 		$(".message").remove();
+
 		// レスポンスがあり、かつアイテムが存在する場合
-		if (response && response[0] && response[0].items && response[0].items.length > 0) {
+		if (response[0].items?.length > 0) {
 			// 各アイテムごとに処理
 			$.each(response[0].items, function (index, item) {
 				// 書籍情報をHTMLに変換してリストに追加
