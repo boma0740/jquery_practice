@@ -25,6 +25,21 @@ $(function () {
 		}
 	}
 
+	// 関数: AJAXリクエストが失敗したときの処理
+	function handleAjaxError(error) {
+		$(".lists").empty();  // リストをクリア
+		$(".message").remove();  // メッセージを削除
+
+		// エラーステータスに応じたメッセージを表示
+		if (error.status === 0) {
+			$(".lists").before('<div class="message">通信に失敗しました。<br>ネットワーク接続を確認してください。</div>');
+		} else if (error.status === 400) {
+			$(".lists").before('<div class="message">検索キーワードが無効です。<br>1文字以上で検索してください。</div>');
+		} else {
+			$(".lists").before('<div class="message">エラーが発生しました。<br>再読み込みしてください。</div>');
+		}
+	}
+
 	// 変数初期化
 	let pageCount = 1;         // ページ番号の初期値
 	let prevSearchWord = "";   // 前回の検索ワードの初期値
@@ -52,17 +67,7 @@ $(function () {
 			processApiResponse(response["@graph"]);  // レスポンスを処理
 		//.failが通信に失敗した時の処理、”err”にサーバーから送られてきたエラー内容を受け取っている。
 		}).fail(function (error) {
-			$(".lists").empty();  // リストをクリア
-			$(".message").remove();  // メッセージを削除
-
-			// エラーステータスに応じたメッセージを表示
-			if (error.status === 0) {
-				$(".lists").before('<div class="message">通信に失敗しました。<br>ネットワーク接続を確認してください。</div>');
-			} else if (error.status === 400) {
-				$(".lists").before('<div class="message">検索キーワードが無効です。<br>1文字以上で検索してください。</div>');
-			} else {
-				$(".lists").before('<div class="message">エラーが発生しました。<br>再読み込みしてください。</div>');
-			}
+			handleAjaxError(error);  // AJAXエラーを処理
 		});
 	});
 
