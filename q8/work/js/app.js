@@ -9,7 +9,7 @@ $(function () {
 			// 各アイテムごとに処理
 			$.each(response[0].items, function (index, item) {
 				// 書籍情報をHTMLに変換してリストに追加
-				let listItem = `
+				const listItem = `
 					<li class="lists-item">
 						<div class="list-inner">
 							<p>タイトル：${item.title ? item.title : "不明"}</p>
@@ -46,7 +46,7 @@ $(function () {
 
 	// 検索ボタンがクリックされたときの処理
 	$(".search-btn").on("click", function () {
-		let searchWord = $("#search-input").val();
+		const searchWord = $("#search-input").val();
 
 		// 前回の検索ワードと異なる場合は検索条件をリセット
 		if (searchWord !== prevSearchWord) {
